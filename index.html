@@ -55,7 +55,12 @@
             display: flex; align-items: center; justify-content: space-between; gap: 20px;
         }
         .logo-box { width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;}
-        .logo { max-height: 130px; max-width: 100%; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));}
+        
+        /* Enforced Equal Size Bounding Boxes */
+        .logo { width: 110px; height: 110px; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));}
+        
+        /* Optional scale boost for SBLAK in case the PNG has transparent padding */
+        .sblak-logo { transform: scale(1.2); }
         
         .header-text { text-align: center; flex: 1; }
         .header-text h1 { 
@@ -224,7 +229,10 @@
         .bottom-right { bottom: 15px; right: 15px; border-top: 0; border-left: 0; }
         
         .doc-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 25px; margin-bottom: 30px; }
-        .doc-logo { height: 90px; object-fit: contain; } /* LOGO SIZE INCREASED FOR PRINT */
+        
+        /* Doc Logos - Equal sizing */
+        .doc-logo { width: 90px; height: 90px; object-fit: contain; } 
+        
         .doc-title { text-align: center; }
         .doc-title h2 { font-size: 24px; color: var(--dark); margin: 0; font-weight: 900; letter-spacing: 1px; text-transform: uppercase;}
         .doc-title p { color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 4px; margin: 5px 0 0 0; font-weight: 800; }
@@ -287,7 +295,10 @@
         .cert-bg-blob2 { position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; background: linear-gradient(135deg, #c7d2fe, #4f46e5); border-radius: 50%; opacity: 0.1; z-index: -1; }
 
         .cert-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;}
-        .cert-logo { height: 100px; object-fit: contain; position: relative; z-index: 2;} /* BADE LOGOS */
+        
+        /* Cert Logos - Equal sizing */
+        .cert-logo { width: 100px; height: 100px; object-fit: contain; position: relative; z-index: 2;} 
+        
         .cert-award-icon { color: var(--gold); font-size: 55px; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15)); position: relative; z-index: 2; }
 
         .cert-headings h1 { 
@@ -299,7 +310,7 @@
         .cert-headings h2 { font-size: 14px; color: var(--gold); letter-spacing: 8px; text-transform: uppercase; margin: 0 0 35px 0; font-weight: 800; }
         
         .cert-name-area { margin: 40px 0; }
-        .cert-name { font-family: 'Outfit', sans-serif; font-size: 60px; color: var(--accent); margin: 0; line-height: 1.2; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 5px rgba(225, 29, 72, 0.15); }
+        .cert-name { font-family: 'Great Vibes', cursive; font-size: 85px; color: var(--accent); margin: 0; line-height: 1; font-weight: 400; text-shadow: 2px 2px 5px rgba(225, 29, 72, 0.15); }
         .cert-name-line { width: 60%; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 25px auto; border-radius: 50%; }
 
         .cert-body { font-size: 18px; color: #475569; line-height: 1.8; max-width: 85%; margin: 0 auto 30px auto; font-weight: 600;}
@@ -350,6 +361,7 @@
             .header { flex-direction: column; text-align: center; padding: 30px 20px; }
             .header-text h1 { font-size: 26px; }
             .logo-box { width: 100px; height: 100px; }
+            .logo { width: 80px; height: 80px; } /* Mobile logo scale down evenly */
             
             .input-group { flex-direction: column; }
             .input-group input { padding: 16px 20px 16px 50px; }
@@ -358,16 +370,16 @@
             .marksheet { padding: 30px 20px; }
             .candidate-info { flex-direction: column; gap: 15px; }
             .doc-header { flex-direction: column; gap: 15px; }
-            .doc-logo { height: 70px; }
+            .doc-logo { width: 70px; height: 70px; }
             .marks-stats { flex-direction: column; gap: 15px; }
             .signatures-area { flex-direction: column; align-items: center; gap: 40px; }
             
             .certificate { padding: 10px; }
             .cert-border-inner { padding: 30px 15px; }
             .cert-header-logos { flex-direction: column; align-items: center; gap: 20px; }
-            .cert-logo { height: 80px; }
+            .cert-logo { width: 80px; height: 80px; }
             .cert-headings h1 { font-size: 32px; }
-            .cert-name { font-size: 36px; line-height: 1.2; }
+            .cert-name { font-size: 50px; }
             .cert-body { font-size: 15px; max-width: 100%; }
             .cert-rank strong { font-size: 22px; }
             .cert-footer-sigs { flex-direction: column; align-items: center; gap: 40px; margin-top: 30px;}
@@ -422,7 +434,7 @@
         
         <!-- HEADER (BADEY LOGOS KE SATH) -->
         <header class="header no-print">
-            <div class="logo-box"><img src="sblak.png" class="logo" alt="SBLAK" onerror="this.src='https://placehold.co/200x200/4338ca/ffffff?text=SBLAK'"></div>
+            <div class="logo-box"><img src="sblak.png" class="logo sblak-logo" alt="SBLAK" onerror="this.src='https://placehold.co/200x200/4338ca/ffffff?text=SBLAK'"></div>
             <div class="header-text">
                 <p class="small-tag">✨ GRAND FINALE ✨</p>
                 <h1>Creator Contest 2026</h1>
@@ -457,7 +469,7 @@
                     <div class="border-decor bottom-right"></div>
 
                     <div class="doc-header">
-                        <img src="sblak.png" class="doc-logo" onerror="this.src='https://placehold.co/200x200/4338ca/ffffff?text=SBLAK'">
+                        <img src="sblak.png" class="doc-logo sblak-logo" onerror="this.src='https://placehold.co/200x200/4338ca/ffffff?text=SBLAK'">
                         <div class="doc-title">
                             <h2>OFFICIAL SCORECARD</h2>
                             <p>Creator Contest 2026</p>
@@ -540,7 +552,7 @@
                             <div class="cert-bg-blob2"></div>
 
                             <div class="cert-header-logos">
-                                <img src="sblak.png" class="cert-logo" onerror="this.src='https://placehold.co/200x200/4338ca/ffffff?text=SBLAK'">
+                                <img src="sblak.png" class="cert-logo sblak-logo" onerror="this.src='https://placehold.co/200x200/4338ca/ffffff?text=SBLAK'">
                                 <div class="cert-award-icon"><i class="fas fa-award"></i></div>
                                 <img src="tripixel.png" class="cert-logo" onerror="this.src='https://placehold.co/200x200/e11d48/ffffff?text=TPM'">
                             </div>
